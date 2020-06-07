@@ -1,0 +1,22 @@
+{
+  "name": "greeting-api",
+  "version": "1.0.0",
+  "description": "```bash",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thalesvon/greeting-api.git"
+  },
+  "author": "Thales Sperling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thalesvon/greeting-api/issues"
+  },
+  "homepage": "https://github.com/thalesvon/greeting-api#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}

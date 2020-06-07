@@ -1,0 +1,8 @@
+{
+    "name": "greetings-api",
+    "managedPolicies":{
+        "s3": "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+        "logs": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+    },
+    "deploymentBucket": "deploymentBucket"
+}

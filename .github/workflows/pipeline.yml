@@ -1,0 +1,49 @@
+name: ci-cd-greeting-api
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      accessKey: ${{ steps.stsConfigure.outputs.accessKey }}
+      secretKey: ${{ steps.stsConfigure.outputs.secretKey }}
+      sessionToken: ${{steps.stsConfigure.outputs.sessionToken }}
+    steps:
+    - name: Checkout code
+      id: checkout
+      uses: actions/checkout@v2
+
+    - name: Retrieve Serverless deployment role sts
+      id: sts
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
+        role-duration-seconds: 1200
+        role-session-name: greeting-api-pipeline
+
+    - name: stsConfigure
+      id: stsConfigure    
+      run: |
+        echo "::set-output name=accessKey::$(echo $AWS_ACCESS_KEY_ID)"
+        echo "::set-output name=secretKey::$(echo $AWS_SECRET_ACCESS_KEY)"
+        echo "::set-output name=sessionToken::$(echo $AWS_SESSION_TOKEN)"
+
+    - name: serverless deploy
+      uses: ./.github/actions/serverless-action
+      with:
+        args: deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ steps.stsConfigure.outputs.accessKey }}
+        AWS_SECRET_ACCESS_KEY: ${{ steps.stsConfigure.outputs.secretKey }}
+        AWS_SESSION_TOKEN: ${{ steps.stsConfigure.outputs.sessionToken }}
+    
+    - name: Job finished
+      if: ${{ always() }} 
+      run: echo "This could be a SNS Notification sending Job status = ${{ job.status }}"

@@ -1,0 +1,46 @@
+{
+    "resource": "/{city}",
+    "path": "/Brasilia",
+    "httpMethod": "POST",
+    "headers": {
+        "accept": "*/*",
+        "content-type": "application/json",
+        "day": "Thursday"
+    },
+    "multiValueHeaders": {
+        "accept": [
+            "*/*"
+        ],
+        "content-type": [
+            "application/json"
+        ],
+        "day": [
+            "Thursday"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": {
+        "time": "evening"
+    },
+    "multiValueQueryStringParameters": {
+        "time": [
+            "evening"
+        ]
+    },
+    "pathParameters": {
+        "city": "Brasilia"
+    },
+    "stageVariables": null,
+    "requestContext": {
+        "resourcePath": "/{city}",
+        "httpMethod": "POST",
+        "path": "/dev/Brasilia"
+    },
+    "body": "{ \"callerName\": \"Jarbas\" }",
+    "isBase64Encoded": false
+}
