@@ -1,11 +1,21 @@
 # Overview
 
-This is just a demo api for testing and using AWS Api Gateway features. The API is developed usign the [serverless][sls]
+This is just a demo api for testing and using AWS Api Gateway features. The API is developed using the [serverless][sls] framework.
 
 - `resources/config.json`: be sure to change the deploymentBucket, use by serverless:
 
 ```json
 "deploymentBucket": "deploymentBucket"
+```
+
+## Get Started
+
+1) Clone repo.
+2) Configure [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+3) Deploy:
+
+```bash
+ serverless deploy
 ```
 
 ## Testing
