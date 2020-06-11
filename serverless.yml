@@ -26,6 +26,7 @@ package:
   exclude:
     - .*
     - .git/**
+    - node_modules/**
 
 functions:
   hello:
