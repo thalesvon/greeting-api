@@ -9,8 +9,8 @@ custom:
 provider:
   name: aws
   tracing:
-    apiGateway: true
-    lambda: true
+    apiGateway: false
+    lambda: false
   runtime: nodejs12.x
   stage: ${opt:stage,'dev'}
   region: ${opt:region, 'eu-west-1'}
