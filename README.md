@@ -1,5 +1,5 @@
 # Overview
-
+trigger
 This is just a demo api for testing and using AWS Api Gateway features. The API is developed using the [serverless][sls] framework.
 
 - `resources/config.json`: be sure to change the deploymentBucket, use by serverless:
