@@ -1,0 +1,17 @@
+name: testing
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      id: checkout
+      uses: actions/checkout@v2
+
+    - name: Run Test
+      id: test
+      run: npm run test
