@@ -14,7 +14,8 @@ jobs:
 
     - name: Install dev/test dependecies
       id: install
-      run: npm install --only=dev
+      run: npm install
+
     - name: Run Test
       id: test
       run: npm run test
