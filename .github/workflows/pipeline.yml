@@ -26,6 +26,9 @@ jobs:
 
     - name: serverless deploy
       uses: ./.github/actions/serverless-action
+      env:
+        X_RAY_TRACING: Active
+
       with:
         args: deploy
     
