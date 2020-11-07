@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "ci:test": "npm install, npm run test"
+    "ci:test": "npm install; npm run test"
   },
   "repository": {
     "type": "git",
