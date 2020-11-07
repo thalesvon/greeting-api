@@ -24,9 +24,6 @@ jobs:
         role-duration-seconds: 1200
         role-session-name: greeting-api-pipeline
 
-    - name: id check
-      run: aws sts get-caller-identity
-      
     - name: serverless deploy
       uses: ./.github/actions/serverless-action
       with:
