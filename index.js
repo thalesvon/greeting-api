@@ -8,12 +8,7 @@ exports.handler = async (event) => {
     let day = '';
     let responseCode = 200;
     console.log("request: " + JSON.stringify(event));
-    
-    if (event.queryStringParameters && event.queryStringParameters.name) {
-        console.log("Received name: " + event.queryStringParameters.name);
-        name = event.queryStringParameters.name;
-    }
-    
+
     if (event.pathParameters && event.pathParameters.city) {
         console.log("Received city: " + event.pathParameters.city);
         city = event.pathParameters.city;
@@ -40,7 +35,7 @@ exports.handler = async (event) => {
 
     let responseBody = {
         message: greeting,
-        input: event
+        //input: event
     };
     
     // The output from a Lambda proxy integration must be 
