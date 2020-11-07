@@ -4,7 +4,8 @@
   "description": "```bash",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "ci:test": "npm install; npm run test"
   },
   "repository": {
     "type": "git",
