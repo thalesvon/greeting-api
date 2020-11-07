@@ -1,5 +1,5 @@
 # Overview
-trigger
+Testing PR
 This is just a demo api for testing and using AWS Api Gateway features. The API is developed using the [serverless][sls] framework.
 
 ## Get Started
