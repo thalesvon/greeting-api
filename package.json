@@ -16,11 +16,7 @@
     "url": "https://github.com/thalesvon/greeting-api/issues"
   },
   "homepage": "https://github.com/thalesvon/greeting-api#readme",
-  "devDependencies": {
-    "jest": "^26.0.1", 
-    "serverless": "^1.72.0"
-  },
   "dependencies": {
-   
+    "serverless": "^1.83.2"
   }
 }

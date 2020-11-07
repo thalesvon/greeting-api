@@ -5,19 +5,19 @@ custom:
   name: 'greeting-api'
   request_template: ${file(resources/request_template.conf)}
   request_schema: ${file(resources/request_schema.json)}
+  variables:
+    tracing: ${env:X_RAY_TRACING, PassThrough}
 
 provider:
   name: aws
   tracing:
-    apiGateway: false
-    lambda: false
+    apiGateway: ${self:custom.variables.tracing}
+    lambda: ${self:custom.variables.tracing}
   runtime: nodejs12.x
   stage: ${opt:stage,'dev'}
   region: ${opt:region, 'eu-west-1'}
   stackName: ${self:custom.name}-stack
   apiName: ${self:custom.name}-gw
-  deploymentBucket:
-    name: ${self:custom.config.deploymentBucket}
   deploymentPrefix: ${self:custom.name}
   endpointType: regional
   description: ${self:custom.name} built with serverless framework
