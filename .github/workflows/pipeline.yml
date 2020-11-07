@@ -7,10 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    outputs:
-      accessKey: ${{ steps.stsConfigure.outputs.accessKey }}
-      secretKey: ${{ steps.stsConfigure.outputs.secretKey }}
-      sessionToken: ${{steps.stsConfigure.outputs.sessionToken }}
     steps:
     - name: Checkout code
       id: checkout
@@ -28,21 +24,13 @@ jobs:
         role-duration-seconds: 1200
         role-session-name: greeting-api-pipeline
 
-    - name: stsConfigure
-      id: stsConfigure    
-      run: |
-        echo "::set-output name=accessKey::$(echo $AWS_ACCESS_KEY_ID)"
-        echo "::set-output name=secretKey::$(echo $AWS_SECRET_ACCESS_KEY)"
-        echo "::set-output name=sessionToken::$(echo $AWS_SESSION_TOKEN)"
-
+    - name: id check
+      run: aws sts get-caller-identity
+      
     - name: serverless deploy
       uses: ./.github/actions/serverless-action
       with:
         args: deploy
-      env:
-        AWS_ACCESS_KEY_ID: ${{ steps.stsConfigure.outputs.accessKey }}
-        AWS_SECRET_ACCESS_KEY: ${{ steps.stsConfigure.outputs.secretKey }}
-        AWS_SESSION_TOKEN: ${{ steps.stsConfigure.outputs.sessionToken }}
     
     - name: Job finished
       if: ${{ always() }} 
