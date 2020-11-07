@@ -12,6 +12,9 @@ jobs:
       id: checkout
       uses: actions/checkout@v2
 
+    - name: Install dev/test dependecies
+      id: install
+      run: npm install --only=dev
     - name: Run Test
       id: test
       run: npm run test
