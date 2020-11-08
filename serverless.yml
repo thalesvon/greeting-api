@@ -6,7 +6,7 @@ custom:
   request_template: ${file(resources/request_template.conf)}
   request_schema: ${file(resources/request_schema.json)}
   variables:
-    tracing: ${env:X_RAY_TRACING, PassThrough}
+    tracing: ${env:X_RAY_TRACING, 'PassThrough'}
 
 provider:
   name: aws

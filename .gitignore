@@ -1,0 +1,16 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# hidden directories
+.*
+
+#bak files
+*.bak
+
+# but
+!.github
+!.gitignore
