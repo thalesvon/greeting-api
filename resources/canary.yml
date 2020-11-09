@@ -118,7 +118,7 @@ Resources:
               const days = ["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"];
               const names = ["Jarbas","Ragnar","Price","Cacau","Elvis","Rolda"];
               const postData = "{ \"callerName\": \""+names[getRandomInt(0,5)]+"\" }";
-              const apiUrl = "y1qcbw9fh2.execute-api.eu-west-1.amazonaws.com";
+              const apiUrl = "{{apiUrl}}";
 
               const headers = {"content-type":"application/json","day":days[getRandomInt(0,6)]};
               headers['User-Agent'] = [synthetics.getCanaryUserAgentString(), headers['User-Agent']].join(' ');
